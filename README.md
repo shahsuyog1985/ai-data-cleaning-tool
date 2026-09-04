@@ -1,10 +1,22 @@
 # ai-data-cleaner
 
+[![tests](https://github.com/shahsuyog1985/ai-data-cleaning-tool/actions/workflows/tests.yml/badge.svg)](https://github.com/shahsuyog1985/ai-data-cleaning-tool/actions/workflows/tests.yml)
+![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Turn disorganized files — unaligned PDF invoices, scrambled CSVs with no consistent
 structure — into clean, categorized tables. An LLM (Claude) does the actual
 interpretation: finding line items in messy text, reconstructing missing fields,
 assigning a business category, and reporting a confidence score per row so a human
 knows exactly what to double-check.
+
+![Demo: cleaning a messy invoice from the command line](docs/demo.gif)
+
+Built by [Suyog Shah](https://github.com/shahsuyog1985) — a marketing data analyst
+who has spent a decade reconciling exactly this kind of messy vendor and campaign
+data by hand (SQL/Redshift, Python, multi-touch attribution). This project automates
+the first, most tedious step of that work: turning an unstructured export into a
+table you can actually run analysis on.
 
 ## Why
 
