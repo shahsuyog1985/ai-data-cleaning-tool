@@ -1,0 +1,144 @@
+{
+  "_comment": "Cached example output from a real run of ai_parser.parse_document() against sample_data/scrambled_expenses.csv, using claude-3-5-haiku-20241022. Bundled so `ai-data-clean demo` works without an API key.",
+  "document_type": "expense_report",
+  "model": "claude-3-5-haiku-20241022",
+  "line_items": [
+    {
+      "raw_text": "\"LinkedIn Ads - Sponsored Content campaign\",1875.5,,,March",
+      "description": "LinkedIn Ads - Sponsored Content campaign",
+      "quantity": null,
+      "unit_price": null,
+      "total": 1875.50,
+      "category": "Marketing & Advertising",
+      "confidence": 0.88,
+      "notes": "Trailing 'March' value likely indicates the expense month, not part of the amount."
+    },
+    {
+      "raw_text": "Uber to airport (client mtg),,42.10",
+      "description": "Uber to airport (client meeting)",
+      "quantity": null,
+      "unit_price": null,
+      "total": 42.10,
+      "category": "Travel",
+      "confidence": 0.88,
+      "notes": null
+    },
+    {
+      "raw_text": "2/14/2026; Notebooks x3 ; office supply; $14.97",
+      "description": "Notebooks x3",
+      "quantity": 3,
+      "unit_price": null,
+      "total": 14.97,
+      "category": "Office Supplies",
+      "confidence": 0.75,
+      "notes": "Row used semicolons instead of commas as the field separator; date (2/14/2026) and category label ('office supply') were embedded in the text rather than in their own columns."
+    },
+    {
+      "raw_text": "Hubspot subscription - annual,,,4800",
+      "description": "HubSpot subscription (annual)",
+      "quantity": null,
+      "unit_price": null,
+      "total": 4800.00,
+      "category": "Software & Subscriptions",
+      "confidence": 0.88,
+      "notes": null
+    },
+    {
+      "raw_text": "\"conference registration, MarTech Summit\",,,1200.00,,paid by Suyog",
+      "description": "Conference registration - MarTech Summit",
+      "quantity": null,
+      "unit_price": null,
+      "total": 1200.00,
+      "category": "Professional Services",
+      "confidence": 0.65,
+      "notes": "No dedicated conference/training category exists in the taxonomy; classified under Professional Services. Trailing note indicates this was paid personally by Suyog and may need reimbursement tracking."
+    },
+    {
+      "raw_text": "mailchimp,29,,monthly",
+      "description": "Mailchimp subscription (monthly)",
+      "quantity": null,
+      "unit_price": 29.00,
+      "total": 29.00,
+      "category": "Software & Subscriptions",
+      "confidence": 0.85,
+      "notes": null
+    },
+    {
+      "raw_text": ",,taxi + tip,,,18.50",
+      "description": "Taxi + tip",
+      "quantity": null,
+      "unit_price": null,
+      "total": 18.50,
+      "category": "Travel",
+      "confidence": 0.8,
+      "notes": null
+    },
+    {
+      "raw_text": "\"Google Workspace - 5 users\",,,,,, 90.00/mo",
+      "description": "Google Workspace - 5 users",
+      "quantity": 5,
+      "unit_price": null,
+      "total": 90.00,
+      "category": "Software & Subscriptions",
+      "confidence": 0.8,
+      "notes": "Value is labeled as a monthly recurring rate (90.00/mo), not confirmed as a one-time charge for this report period."
+    },
+    {
+      "raw_text": "zoom webinar addon; one-time; 55",
+      "description": "Zoom webinar add-on (one-time)",
+      "quantity": null,
+      "unit_price": null,
+      "total": 55.00,
+      "category": "Software & Subscriptions",
+      "confidence": 0.78,
+      "notes": "Row used semicolons instead of commas as the field separator."
+    },
+    {
+      "raw_text": "hotel - 2 nights marriott downtown,,,,412.88",
+      "description": "Hotel - 2 nights, Marriott downtown",
+      "quantity": 2,
+      "unit_price": null,
+      "total": 412.88,
+      "category": "Travel",
+      "confidence": 0.9,
+      "notes": null
+    },
+    {
+      "raw_text": "Freelance designer invoice #223 - logo refresh,,,650",
+      "description": "Freelance designer invoice #223 - logo refresh",
+      "quantity": null,
+      "unit_price": null,
+      "total": 650.00,
+      "category": "Professional Services",
+      "confidence": 0.88,
+      "notes": null
+    },
+    {
+      "raw_text": "parking garage receipt lost - estimate,,~20",
+      "description": "Parking garage (receipt lost, estimated)",
+      "quantity": null,
+      "unit_price": null,
+      "total": 20.00,
+      "category": "Travel",
+      "confidence": 0.45,
+      "notes": "Amount is a self-reported estimate ('~20') because the receipt was lost; not an exact figure."
+    },
+    {
+      "raw_text": "adobe stock images (bulk pack),,,99",
+      "description": "Adobe Stock images (bulk pack)",
+      "quantity": null,
+      "unit_price": null,
+      "total": 99.00,
+      "category": "Marketing & Advertising",
+      "confidence": 0.7,
+      "notes": "Could reasonably fall under Software & Subscriptions instead; classified as Marketing & Advertising since stock imagery is typically used in campaign creative."
+    }
+  ],
+  "overall_confidence": 0.79,
+  "issues": [
+    "First row is a report title ('Expense Report - Q1 2026...') and was excluded as a header, not a line item.",
+    "Several fully blank or delimiter-only rows (e.g. ',,,,,' and ';;;;') were excluded.",
+    "The file mixes comma-delimited rows with a few semicolon-delimited rows, and column position for the amount is inconsistent row to row; amounts were located by content (currency-like values) rather than fixed column position.",
+    "Two rows (parking estimate, Google Workspace monthly rate) contain amounts that are explicitly approximate or recurring rather than exact one-time totals — flagged individually via low confidence and notes."
+  ]
+}

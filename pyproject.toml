@@ -1,0 +1,26 @@
+[project]
+name = "ai-data-cleaner"
+version = "0.1.0"
+description = "AI-powered tool that turns disorganized files (messy PDFs, scrambled CSVs) into clean, categorized tables using an LLM."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Suyog Shah" }]
+dependencies = [
+    "anthropic>=0.39.0",
+    "pandas>=2.0.0",
+    "pdfplumber>=0.11.0",
+    "click>=8.1.0",
+    "python-dotenv>=1.0.0",
+    "openpyxl>=3.1.0",
+]
+
+[project.scripts]
+ai-data-clean = "ai_data_cleaner.cli:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["ai_data_cleaner*"]

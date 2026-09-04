@@ -1,0 +1,113 @@
+{
+  "_comment": "Cached example output from a real run of ai_parser.parse_document() against sample_data/nightmare_invoice.pdf, using claude-3-5-haiku-20241022. Bundled so `ai-data-clean demo` works without an API key. Regenerate with: ai-data-clean clean sample_data/nightmare_invoice.pdf --save-cache",
+  "document_type": "invoice",
+  "model": "claude-3-5-haiku-20241022",
+  "line_items": [
+    {
+      "raw_text": "Google Ads mgmt fee - Q1 campaign 1 2,450.00 (retainer, includes 2 rounds of creative revisions)",
+      "description": "Google Ads management fee - Q1 campaign retainer (includes 2 rounds of creative revisions)",
+      "quantity": 1,
+      "unit_price": 2450.00,
+      "total": 2450.00,
+      "category": "Marketing & Advertising",
+      "confidence": 0.95,
+      "notes": null
+    },
+    {
+      "raw_text": "Facebook/Meta ad spend passthrough --- 14,802.33",
+      "description": "Facebook/Meta ad spend passthrough",
+      "quantity": null,
+      "unit_price": null,
+      "total": 14802.33,
+      "category": "Marketing & Advertising",
+      "confidence": 0.9,
+      "notes": "Quantity listed as '---' in source; treated as not applicable."
+    },
+    {
+      "raw_text": "Stock photography license x12 images 12 @ 18.50 222.00",
+      "description": "Stock photography license (12 images)",
+      "quantity": 12,
+      "unit_price": 18.50,
+      "total": 222.00,
+      "category": "Marketing & Advertising",
+      "confidence": 0.92,
+      "notes": null
+    },
+    {
+      "raw_text": "Freelance copywriter - landing pages, 8 hrs @ 65/hr 520.00",
+      "description": "Freelance copywriter - landing pages (8 hrs)",
+      "quantity": 8,
+      "unit_price": 65.00,
+      "total": 520.00,
+      "category": "Professional Services",
+      "confidence": 0.88,
+      "notes": "Amount appeared on the line below the description in the source; reconstructed as one item."
+    },
+    {
+      "raw_text": "Zoom Business subscription (3 seats) monthly 74.97",
+      "description": "Zoom Business subscription (3 seats, monthly)",
+      "quantity": 3,
+      "unit_price": null,
+      "total": 74.97,
+      "category": "Software & Subscriptions",
+      "confidence": 0.9,
+      "notes": null
+    },
+    {
+      "raw_text": "Canva Pro annual - renewed 1 119.99",
+      "description": "Canva Pro annual subscription - renewed",
+      "quantity": 1,
+      "unit_price": 119.99,
+      "total": 119.99,
+      "category": "Software & Subscriptions",
+      "confidence": 0.85,
+      "notes": "Description and amount were split across two lines in the source; reconstructed as one item."
+    },
+    {
+      "raw_text": "Shipping - trade show banners & swag to Austin TX 2 boxes, FedEx Ground 88.40",
+      "description": "Shipping - trade show banners & swag to Austin TX (2 boxes, FedEx Ground)",
+      "quantity": 2,
+      "unit_price": null,
+      "total": 88.40,
+      "category": "Shipping & Freight",
+      "confidence": 0.87,
+      "notes": null
+    },
+    {
+      "raw_text": "Misc office snacks + coffee for client visit n/a 41.16",
+      "description": "Office snacks and coffee for client visit",
+      "quantity": null,
+      "unit_price": null,
+      "total": 41.16,
+      "category": "Meals & Entertainment",
+      "confidence": 0.8,
+      "notes": null
+    },
+    {
+      "raw_text": "Adobe Creative Cloud - team plan (4 licenses) 4 239.96",
+      "description": "Adobe Creative Cloud - team plan (4 licenses)",
+      "quantity": 4,
+      "unit_price": 59.99,
+      "total": 239.96,
+      "category": "Software & Subscriptions",
+      "confidence": 0.9,
+      "notes": null
+    },
+    {
+      "raw_text": "Consulting - GA4 migration audit (Priya R.) 6 hrs 900.00",
+      "description": "Consulting - GA4 migration audit (Priya R.)",
+      "quantity": 6,
+      "unit_price": 150.00,
+      "total": 900.00,
+      "category": "Professional Services",
+      "confidence": 0.9,
+      "notes": null
+    }
+  ],
+  "overall_confidence": 0.89,
+  "issues": [
+    "Subtotal, tax, and TOTAL DUE summary rows were excluded from line items as document totals, not purchases; subtotal (19,458.81) matches the sum of extracted line totals.",
+    "No column headers were reliably aligned in the source PDF (text was reconstructed from layout-preserved extraction, not a real table), so quantity/unit price were inferred from context on several rows.",
+    "Vendor header block, remittance terms, and footer boilerplate were ignored as non-line-item content."
+  ]
+}
